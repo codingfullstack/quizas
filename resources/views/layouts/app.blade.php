@@ -55,6 +55,12 @@
         </main>
     </div>
     @include('footer')
+    <script>
+    // if (confirm("Ar tikrai norite tęsti?")) {
+    //     window.location.href = "/kelias-i-ta-routa";
+    // }
+    </script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     @livewireScripts
 </body>

@@ -45,7 +45,7 @@ class QuizPermissionController extends Controller
                 'is_correct' => 1,
             ]);
         }
-
+        $request->session()->put('quizProgress', true);
         return redirect()->route('quiz.question', ['quiz_id' => $request->input('quiz_id'), 'question_id' => 1]);
     }
 

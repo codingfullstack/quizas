@@ -122,11 +122,11 @@
                     Create blog
                 </h5>
                 <p class="  h-8 block font-sans text-base font-light leading-relaxed text-inherit antialiased">
-                    ....
+                    Create amazing blogs and share your thoughts with others
                 </p>
             </div>
             <div class="p-6 pt-0">
-                <a class="!font-medium !text-blue-gray-900 !transition-colors hover:!text-pink-500" href="#">
+                <a class="!font-medium !text-blue-gray-900 !transition-colors hover:!text-pink-500" href="{{ route('blog.create') }}">
                     <button
                         class="flex select-none items-center gap-2 rounded-lg py-2 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-pink-500 transition-all hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                         type="button" data-ripple-dark="true">

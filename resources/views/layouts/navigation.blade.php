@@ -72,6 +72,9 @@
                             <x-dropdown-link :href="route('poll.create')">
                                 {{ __('Create new poll') }}
                             </x-dropdown-link>
+                            <x-dropdown-link :href="route('blog.create')">
+                                {{ __('Create new blog') }}
+                            </x-dropdown-link>
 
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">
@@ -144,6 +147,9 @@
                     </x-responsive-nav-link>
                     <x-responsive-nav-link :href="route('poll.create')">
                         {{ __('Create new poll') }}
+                    </x-responsive-nav-link>
+                    <x-responsive-nav-link :href="route('blog.create')">
+                        {{ __('Create new blog') }}
                     </x-responsive-nav-link>
 
                     <!-- Authentication -->

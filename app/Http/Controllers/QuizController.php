@@ -39,7 +39,7 @@ class QuizController extends Controller
             'description' => 'required',
             'category' => 'required'
         ]);
-       $data =  Quiz::create([
+        $data =  Quiz::create([
             'name' => $request->input('name'),
             'description' => $request->input('description'),
             'user_id' => Auth::id(),
@@ -71,7 +71,6 @@ class QuizController extends Controller
         }
         $quiz = quiz::find($quiz_id);
         $question = $quiz->quiz_question()->where('question_id', $question_id)->get();
-        // dd($question);
 
         return view('quiz.do_quiz', compact('quiz', 'question'));
     }

@@ -8,6 +8,7 @@ use App\Http\Controllers\QuizQuestionController;
 use App\Http\Controllers\QuizPermissionController;
 use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\PollController;
+use App\Http\Controllers\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,18 @@ use App\Http\Controllers\PollController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+
+
+// ------QUIZ--------
+Route::middleware('JoinQuiz')->group(function () {
+    Route::get('/quiz/{quiz_id}/question/{question_id}', [QuizController::class, 'showQuestion'])
+        ->name('quiz.question');
+    Route::post('quiz/{quiz_id}/question/{question_id}', [AnswerController::class, 'postQuestion'])
+        ->name('quiz.post');
+});
+Route::post('/clear-session/{id}', [AnswerController::class, 'cancelQuiz'])->name('clear-session');
+Route::middleware('quizCheck')->group(function () {
 Route::get('/', function () {
     return view('first');
 })->name('home');
@@ -26,7 +39,7 @@ Route::get('/', function () {
 Route::resource('/permission', QuizPermissionController::class);
 
 // -------SESIONS----------
-Route::post('/clear-session/{id}', [AnswerController::class, 'cancelQuiz'])->name('clear-session');
+
 Route::post('quiz-create-done/{id}', [QuizQuestionController::class, 'quizCreateDone'])
     ->name('quiz.create.done');
 
@@ -42,23 +55,13 @@ Route::get('/category/{category}', [HomeController::class, 'categoryFilter'])
 Route::get('/search', [HomeController::class, 'filter'])
     ->name('search');
 
-
-// ------QUIZ--------
-Route::middleware('JoinQuiz')->group(function () {
-    Route::get('/quiz/{quiz_id}/question/{question_id}', [QuizController::class, 'showQuestion'])
-        ->name('quiz.question');
-    Route::post('quiz/{quiz_id}/question/{question_id}', [AnswerController::class, 'postQuestion'])
-        ->name('quiz.post');
-});
-
-
-
 Route::get('/poll', [PollController::class, 'index'])->name('poll.index');
 Route::middleware('auth')->group(function () {
     Route::get('/poll/create', [PollController::class, 'create'])->name('poll.create');
     Route::post('/poll/store', [PollController::class, 'store'])->name('poll.store');
-    Route::resource('question', QuizQuestionController::class);
-    Route::resource('quiz', QuizController::class)->except(['index', 'show']);
+    Route::resource('/blog', BlogController::class);
+    Route::resource('/question', QuizQuestionController::class);
+    Route::resource('/quiz', QuizController::class)->except(['index', 'show']);
     Route::get('/profile', [ProfileController::class, 'edit'])
         ->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])
@@ -67,5 +70,9 @@ Route::middleware('auth')->group(function () {
         ->name('profile.destroy');
 });
 Route::resource('quiz', QuizController::class)->only(['index', 'show']);
+});
+
+
+
 
 require __DIR__ . '/auth.php';

@@ -81,7 +81,7 @@ class AnswerController extends Controller
         $permission = $quiz->quiz_permission;
         // dd($permission);
         $permission[0]->delete();
-        session()->forget(['question_id', 'answers']);
+        session()->forget(['question_id', 'answers', 'quizProgress']);
         return redirect()->route('home');
     }
     public function postQuestion(Request $request, $quiz_id, $question_id)
@@ -91,11 +91,11 @@ class AnswerController extends Controller
         $session_id++;
         $request->session()->put('question_id', $session_id);
         $this->sessionPush($request, $question_id, $quiz);
+        // dd(session()->get('quizProgress'));
         $count = $quiz->quiz_question()->count();
         if ($count >= $session_id) {
             return redirect()->route('quiz.question', ['quiz_id' => $quiz_id, 'question_id' => $session_id]);
         } else {
-
             if (auth()->check()) {
             $this->store($request);
             }

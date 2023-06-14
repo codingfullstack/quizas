@@ -1,9 +1,9 @@
 <x-app-layout>
-    {{-- <x-slot name="header">
+    <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Quiz') }}
         </h2>
-    </x-slot> --}}
+    </x-slot>
     @include('home.filter')
     <div class="py-12 ">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 ">
@@ -26,9 +26,9 @@
                                     <!-- Vartotojas dar nėra pateikęs leidimo, rodyti mygtuką "Join" -->
                                     <form method="POST" action="{{ route('permission.store') }}">
                                         @csrf
-                                        <input type="text" name="quiz_id" class="hidden" value={{ $item->id }}>
-                                        <button
-                                            class="bg-gray-200 border-2 border-black rounded-full px-5 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                                        @method('POST')
+                                        <input type="hidden" name="quiz_id" value="{{ $item->id }}">
+                                        <button class="bg-gray-200 border-2 border-black rounded-full px-5 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                                             Join
                                         </button>
                                     </form>
@@ -61,7 +61,6 @@
                                 @endif
                             @endif
                         @endif
-
                             {{-- <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
                           <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
                           <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span> --}}
