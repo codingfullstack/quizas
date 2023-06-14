@@ -16,7 +16,6 @@ class PollCard extends Component
     public $vote;
     public function mount($key)
     {
-        dd("test");
         $this->poll = Poll::find($key);
         $this->updateVotes();
     }
@@ -40,6 +39,7 @@ class PollCard extends Component
     ];
     public function submitVote()
     {
+        dd("test");
         $this->validate();
         // dd($this->vote);
         if ($this->vote === "yes") {
@@ -56,7 +56,6 @@ class PollCard extends Component
     }
     public function render()
     {
-        // dd( $this->percent_for);
         return view('livewire.polls.poll-card', [
             'poll' => $this->poll,
             'total' => $this->total_votes,
