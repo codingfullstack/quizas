@@ -16,6 +16,7 @@ class PollCard extends Component
     public $vote;
     public function mount($key)
     {
+        dd("test");
         $this->poll = Poll::find($key);
         $this->updateVotes();
     }
