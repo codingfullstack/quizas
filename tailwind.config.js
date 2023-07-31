@@ -15,8 +15,8 @@ module.exports = {
             },
             backgroundImage: {
                 'bg-header': "url('/public/images/bg.jpg')",
-                'bg-quiz': "url('/public/images/quiz.jpg')",
-                'bg-rate': "url('/public/images/rate.jpg')",
+                'bg-abstract': "url('/public/images/abstract.jpg')",
+                'bg-abstract1': "url('/public/images/abstract1.jpg')",
                 'bg-blog': "url('/public/images/blog.png')",
                 'bg-poll': "url('/public/images/poll.jpg')",
             },

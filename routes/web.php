@@ -9,6 +9,7 @@ use App\Http\Controllers\QuizPermissionController;
 use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\PollController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\FirstController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,9 +33,7 @@ Route::middleware('JoinQuiz')->group(function () {
 });
 Route::post('/clear-session/{id}', [AnswerController::class, 'cancelQuiz'])->name('clear-session');
 Route::middleware('quizCheck')->group(function () {
-Route::get('/', function () {
-    return view('first');
-})->name('home');
+Route::get('/', [FirstController::class, 'index'])->name('home');
 // ---------PERMISSION----------
 Route::resource('/permission', QuizPermissionController::class);
 
@@ -59,7 +58,9 @@ Route::get('/poll', [PollController::class, 'index'])->name('poll.index');
 Route::middleware('auth')->group(function () {
     Route::get('/poll/create', [PollController::class, 'create'])->name('poll.create');
     Route::post('/poll/store', [PollController::class, 'store'])->name('poll.store');
-    Route::resource('/blog', BlogController::class);
+
+    Route::resource('/blog', BlogController::class)->except(['index', 'show']);
+
     Route::resource('/question', QuizQuestionController::class);
     Route::resource('/quiz', QuizController::class)->except(['index', 'show']);
     Route::get('/profile', [ProfileController::class, 'edit'])
@@ -69,7 +70,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])
         ->name('profile.destroy');
 });
+// -------------- ONLY --------------
 Route::resource('quiz', QuizController::class)->only(['index', 'show']);
+Route::resource('/blog', BlogController::class)->only(['index', 'show']);
 });
 
 

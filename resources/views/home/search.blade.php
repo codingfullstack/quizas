@@ -5,6 +5,15 @@
         </h2>
     </x-slot> --}}
     @include('home.filter')
+    <div class="relative h-96  bg-bg-abstract1 bg-cover ">
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center text-white">
+                <h1 class="mb-6 text-5xl font-bold">You want <span id="tekstas"></span> ?</h1>
+                <a id="myLink" href="{{ route('quiz.create') }}"><button class="border-2 rounded-md py-0.5 px-10 uppercase font-semibold text-lg">Start</button></a>
+            </div>
+        </div>
+    </div>
     <div class="py-12 ">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 ">
             <div class="  flex flex-wrap md:justify-center sm:justify-center xl:justify-start">
@@ -75,3 +84,42 @@
         </div>
     </div>
 </x-app-layout>
+<script>
+    const myLink = document.getElementById('myLink');
+    const tekstai = ["Create quiz", "Create poll", "Create blog"];
+    const links = [ '{{ route('quiz.create') }}', '{{ route('poll.create') }}' , '{{ route('blog.create') }}'];
+    let i = 0;
+
+    function typeWriter(element, text, speed) {
+        myLink.href =links[i]
+        let j = 0;
+        const timer = setInterval(() => {
+            if (j < text.length) {
+                element.innerHTML += text.charAt(j);
+                j++;
+            } else {
+                clearInterval(timer);
+                setTimeout(() => {
+                    const trinimoTimer = setInterval(() => {
+                        const tekstas = element.innerHTML;
+                        if (tekstas.length > 0) {
+                            element.innerHTML = tekstas.substring(0, tekstas.length - 1);
+                        } else {
+                            clearInterval(trinimoTimer);
+                            i++;
+                            if (i >= tekstai.length) {
+                                i = 0;
+                            }
+                            typeWriter(element, tekstai[i], speed);
+                        }
+                    }, 100);
+                }, 3000);
+            }
+        }, speed);
+
+    }
+
+    const element = document.getElementById("tekstas");
+    const sparta = 200; // 100 milisekundžių intervalas tarp simbolių rašymo
+    typeWriter(element, tekstai[i], sparta);
+</script>

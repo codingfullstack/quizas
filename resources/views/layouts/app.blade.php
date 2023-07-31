@@ -43,7 +43,7 @@
         <!-- Page Heading -->
         @if (isset($header))
             <header class="bg-white dark:bg-gray-800 shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                <div class="uppercase mx-auto py-6 px-4 sm:px-6 lg:px-8">
                     {{ $header }}
                 </div>
             </header>
@@ -55,12 +55,6 @@
         </main>
     </div>
     @include('footer')
-    <script>
-    // if (confirm("Ar tikrai norite tęsti?")) {
-    //     window.location.href = "/kelias-i-ta-routa";
-    // }
-    </script>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     @livewireScripts
 </body>

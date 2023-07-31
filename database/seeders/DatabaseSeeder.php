@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
             Quiz_questionSeeder::class,
             CategorySeeder::class,
             Category_quizSeeder::class,
+            BlogSeeder::class,
+            CommentSeeder::class,
         ]);
     }
 }

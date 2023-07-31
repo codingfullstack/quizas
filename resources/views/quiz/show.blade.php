@@ -1,12 +1,11 @@
 <x-app-layout>
     <div class="py-12 ">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 ">
+        <div class=" mx-auto h-96 sm:px-6 lg:px-8 ">
             <div class="columns-1">
                 <h1 class="text-7xl mb-5">{{ $quiz->name }}</h1>
                 <div>
-                    <span class=" text-sm  text-gray-400">{{ $quiz->description }}
-                        <span class="font-bold">Klausimų
-                            kiekis:{{ $count }}, Dalivavusių Vartotojų
+                    <span class=" text-sm  text-gray-400">{{ $quiz->description }}.
+                        <span class="font-bold"> | Quantity of questions:{{ $count }} | Dalivavusių Vartotojų
                             kiekis:{{ $permissionCount }}
                         </span>
                     </span>

@@ -1,4 +1,4 @@
-<div class="w-full border-b-2 flex justify-start">
+<div class="w-full border-b-2 flex justify-start bg-gray-200">
     <form action="{{ route('search') }}" class="w-full  mx-auto sm:px-6 lg:px-8 " method="GET">
         @csrf
         <input type="text" class="rounded-xl h-8 w-11/12 block my-2 mx-auto" name="search" placeholder="Description..">
