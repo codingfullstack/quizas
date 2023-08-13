@@ -39,7 +39,7 @@ class PollCard extends Component
     ];
     public function submitVote()
     {
-        dd("test");
+        // dd("test");
         $this->validate();
         // dd($this->vote);
         if ($this->vote === "yes") {
