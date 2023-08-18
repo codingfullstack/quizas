@@ -36,7 +36,7 @@
                 </div>
                 <div class="p-6 pt-0">
                     <a class="!font-medium !text-blue-gray-900 !transition-colors hover:!text-pink-500"
-                        href="{{ route('poll.create') }}">
+                        href="{{ route('poll.index') }}">
                         <button
                             class="flex select-none items-center gap-2 rounded-lg py-2 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-pink-500 transition-all hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                             type="button" data-ripple-dark="true">
@@ -140,7 +140,7 @@
                 </div>
                 <div class="p-6 pt-0">
                     <a class="!font-medium !text-blue-gray-900 !transition-colors hover:!text-pink-500"
-                        href="{{ route('blog.create') }}">
+                        href="{{ route('blog.index') }}">
                         <button
                             class="flex select-none items-center gap-2 rounded-lg py-2 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-pink-500 transition-all hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                             type="button" data-ripple-dark="true">
@@ -201,11 +201,12 @@
             <div class="m-5">
                 <h2 class="uppercase font-semibold text-xl">most active authors</h2>
                 @foreach ($sortedAuthors as $item)
+                {{-- {{$item}} --}}
                     <div class="max-w-sm p-6 my-5 bg-white  border-gray-200 rounded-lg shadow  ">
-                        <a href="{{ route('blog.show', $item->id) }}">
+                        {{-- <a href="{{ route('blog.show', $item->id) }}"> --}}
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
                                 {{ $item->name }}</h5>
-                        </a>
+                        {{-- </a> --}}
                         <p class="mb-3 font-normal text-gray-700 ">
                             has {{ $item->total_count }} records</p>
                     </div>

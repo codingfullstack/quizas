@@ -24,6 +24,7 @@ use App\Http\Controllers\FirstController;
 
 
 
+
 // ------QUIZ--------
 Route::middleware('JoinQuiz')->group(function () {
     Route::get('/quiz/{quiz_id}/question/{question_id}', [QuizController::class, 'showQuestion'])
@@ -43,9 +44,9 @@ Route::post('quiz-create-done/{id}', [QuizQuestionController::class, 'quizCreate
     ->name('quiz.create.done');
 
     // -------ANSWER AND REZULT---------
-Route::get('/quiz/rezult/{id}', [AnswerController::class, 'calculatePercentage'])
+    Route::get('/quiz/rezult/{id}', [AnswerController::class, 'calculatePercentage'])
     ->name('quiz.answer');
-Route::resource('/answer', AnswerController::class)
+    Route::resource('/answer', AnswerController::class)
     ->except(['store']);
 
     // ----------FILTER---------

@@ -99,6 +99,7 @@ class AnswerController extends Controller
             if (auth()->check()) {
             $this->store($request);
             }
+            $request->session()->forget(['quizProgress']);
             $request->session()->forget(['question_id']);
             return redirect()->route('quiz.answer', ['id' => $quiz_id]);
         }
