@@ -75,7 +75,7 @@
                     Useful links
                 </h6>
                 <p class="mb-4">
-                    <a href="{{ route('poll.create') }}" class="text-neutral-600 dark:text-neutral-200">Create poll</a>
+                    <a href="{{ route('poll.index') }}" class="text-neutral-600 dark:text-neutral-200">Polls</a>
                 </p>
                 <p class="mb-4">
                     <a href="{{ route('quiz.create') }}" class="text-neutral-600 dark:text-neutral-200">Create quiz</a>
@@ -84,7 +84,7 @@
                     <a href="{{ route('quiz.index') }}" class="text-neutral-600 dark:text-neutral-200">Join to quiz</a>
                 </p>
                 <p class="mb-4">
-                    <a href="{{ route('blog.create') }}" class="text-neutral-600 dark:text-neutral-200">Create blog</a>
+                    <a href="{{ route('blog.index') }}" class="text-neutral-600 dark:text-neutral-200">Blogs</a>
                 </p>
                 <p>
                     <a href="#!" class="text-neutral-600 dark:text-neutral-200">Rate the quiz</a>
@@ -122,7 +122,7 @@
                             d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z"
                             clip-rule="evenodd" />
                     </svg>
-                    + 01 234 567 88
+                    + 01 234 567 89
                 </p>
             </div>
         </div>
