@@ -10,6 +10,7 @@ use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\PollController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\FirstController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,6 +76,8 @@ Route::middleware('auth')->group(function () {
 Route::resource('quiz', QuizController::class)->only(['index', 'show']);
 Route::resource('/blog', BlogController::class)->only(['index', 'show']);
 });
+// -----------ADMIN----------------
+Route::get('/admin', [AdminController::class, 'index']);
 
 
 

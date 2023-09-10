@@ -4,13 +4,15 @@
             {{ __('Dashboard') }}
         </h2>
     </x-slot> --}}
-    @include('home.filter')
+    {{-- @include('home.filter') --}}
     <div class="relative h-96  bg-bg-abstract1 bg-cover ">
         <div class="absolute inset-0 bg-black bg-opacity-50"></div>
         <div class="absolute inset-0 flex items-center justify-center">
             <div class="text-center text-white">
                 <h1 class="mb-6 text-5xl font-bold">You want <span id="tekstas"></span> ?</h1>
-                <a id="myLink" href="{{ route('quiz.create') }}"><button class="border-2 rounded-md py-0.5 px-10 uppercase font-semibold text-lg">Start</button></a>
+                <a id="myLink" href="#">
+                    <button class="border-2 rounded-md py-0.5 px-10 uppercase font-semibold text-lg">Start</button>
+                </a>
             </div>
         </div>
     </div>
@@ -87,11 +89,11 @@
 <script>
     const myLink = document.getElementById('myLink');
     const tekstai = ["Create quiz", "Create poll", "Create blog"];
-    const links = [ '{{ route('quiz.create') }}', '{{ route('poll.create') }}' , '{{ route('blog.create') }}'];
+    const links = ['{{ route('quiz.create') }}', '{{ route('poll.create') }}', '{{ route('blog.create') }}'];
     let i = 0;
 
     function typeWriter(element, text, speed) {
-        myLink.href =links[i]
+        myLink.href = links[i]
         let j = 0;
         const timer = setInterval(() => {
             if (j < text.length) {

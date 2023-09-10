@@ -86,6 +86,10 @@ class AnswerController extends Controller
     }
     public function postQuestion(Request $request, $quiz_id, $question_id)
     {
+        $request->validate([
+            'answer' => 'required',
+        ]);
+        // $request->session()->flush();
         $quiz = quiz::find($quiz_id);
         $session_id = $request->session()->get('question_id', $question_id);
         $session_id++;
@@ -137,9 +141,10 @@ class AnswerController extends Controller
         });
         if ($allQuestions > 0) {
             $percentage = round((count($correctAnswers) / $allQuestions) * 100, 2);
-            $request->session()->forget(['answers']);
+            $request->session()->reflash();
             return view('quiz.quiz_Done', compact('percentage'));
         } else {
+            $request->session()->forget('answers');
             return 0;
         }
     }

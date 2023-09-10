@@ -4,8 +4,11 @@
             {{ __('header') }}
         </h2>
     </x-slot> --}}
-    <div class="relative h-96 bg-bg-header">
-        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div class="relative bg-bg-header">
+        <div class="h-auto w-full bg-cover rounded-lg relative">
+            <div class="absolute inset-0 bg-black opacity-70"></div>
+            <img class="h-full w-full" src="{{ asset('images/to.jpg') }}" alt="Image">
+        </div>
         <div class="absolute inset-0 flex items-center justify-center">
             <div class="text-center text-white">
                 <h1 class="mb-6 text-5xl font-bold">You want <span id="tekstas"></span> ?</h1>
@@ -15,11 +18,11 @@
             </div>
         </div>
     </div>
-    <div class="w-full mx-auto border-b-2 ">
+    <div class="w-full mx-auto border-b-2   ">
         <div class="border-b-2 border-gray-200 w-full flex justify-center flex-wrap  ">
             {{-- card --}}
             <div
-                class="relative mt-6 flex w-96 flex-col rounded-xl bg-white h-56 bg-clip-border text-gray-700 shadow-md mx-5 mb-3">
+                class="relative my-6 flex w-96 flex-col rounded-xl  bg-white h-56 bg-clip-border text-gray-700 shadow-md mx-5 ">
                 <div class="p-6">
                     <svg class="w-10 h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                         <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
@@ -53,7 +56,7 @@
             {{-- card end --}}
             {{-- card --}}
             <div
-                class="relative mt-6 flex w-96 flex-col rounded-xl bg-white h-56 bg-clip-border text-gray-700 shadow-md mx-5 mb-3">
+                class="relative my-6 flex w-96 flex-col rounded-xl bg-white h-56 bg-clip-border text-gray-700 shadow-md mx-5 ">
                 <div class="p-6">
                     <svg class="w-10 h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
                         <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
@@ -87,7 +90,7 @@
             {{-- card end --}}
             {{-- card --}}
             <div
-                class="relative mt-6 flex w-96 flex-col rounded-xl bg-white h-56 bg-clip-border text-gray-700 shadow-md mx-5 mb-3">
+                class="relative my-6 flex w-96 flex-col rounded-xl bg-white h-56 bg-clip-border text-gray-700 shadow-md mx-5">
                 <div class="p-6">
                     <svg class="w-10 h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                         <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
@@ -120,10 +123,11 @@
             </div>
             {{-- card end --}}
         </div>
+        {{-- next  --}}
         <div class=" w-full flex justify-center flex-wrap my-3  ">
             {{-- card --}}
             <div
-                class="relative mt-6 mb-3 flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md mx-5">
+                class="relative my-6 flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md mx-5">
                 <div class="p-6">
                     <svg class="h-10 w-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                         <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
@@ -157,7 +161,7 @@
             {{-- card end --}}
             {{-- card --}}
             <div
-                class="relative mb-3 mt-6 flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md mx-5">
+                class="relative my-6 flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md mx-5">
                 <div class="p-6">
                     <svg class="h-10 w-10 inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
                         <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
@@ -198,8 +202,8 @@
     </div>
     <div class="w-full flex mx-auto">
         <div class="w-1/2  ">
-            <div class="m-5">
-                <h2 class="uppercase font-semibold text-xl">most active authors</h2>
+            <div class="my-5 mx-10">
+                <h2 class="uppercase font-semibold text-xl ">most active authors</h2>
                 @foreach ($sortedAuthors as $item)
                 {{-- {{$item}} --}}
                     <div class="max-w-sm p-6 my-5 bg-white  border-gray-200 rounded-lg shadow  ">
@@ -214,7 +218,7 @@
             </div>
         </div>
         <div class="w-1/2 ">
-            <div class="m-5">
+            <div class="my-5 mx-10">
                 <h2 class="uppercase font-semibold text-xl">most popular blogs</h2>
                 @foreach ($popBlogs as $item)
                     <div class="max-w-sm p-6 my-5 bg-white  border-gray-200 rounded-lg shadow   ">

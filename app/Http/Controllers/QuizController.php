@@ -66,6 +66,7 @@ class QuizController extends Controller
     }
     public function showQuestion(Request $request, $quiz_id, $question_id)
     {
+        // $request->session()->flush();
         $session_id = $request->session()->get('question_id', 1);
         if ($session_id != $question_id) {
             return redirect()->route('quiz.question', ['quiz_id' => $quiz_id, 'question_id' => $session_id]);
