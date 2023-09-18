@@ -9,4 +9,8 @@ class Poll extends Model
 {
     protected $fillable = ['user_id', 'question', 'yes', 'no'];
     use HasFactory;
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

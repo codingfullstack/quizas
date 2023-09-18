@@ -77,7 +77,10 @@ Route::resource('quiz', QuizController::class)->only(['index', 'show']);
 Route::resource('/blog', BlogController::class)->only(['index', 'show']);
 });
 // -----------ADMIN----------------
-Route::get('/admin', [AdminController::class, 'index']);
+
+Route::get('/admin', [AdminController::class, 'index'])->name('admin')->middleware('is_admin');
+Route::get('/admin-users', [AdminController::class, 'usersList'])->name('admin.users')->middleware('is_admin');
+Route::post('/adminUser/{id}', [AdminController::class, 'changePermission'])->name('adminUser')->middleware('is_admin');
 
 
 

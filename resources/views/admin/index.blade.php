@@ -1,62 +1,11 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="flex">
-        <div class="sidebar h-screen  p-2 w-[300px] overflow-y-auto text-center bg-gray-900">
-            <div class="text-gray-100 text-xl">
-                <div class="p-2.5 mt-1 flex items-center">
-                    <h1 class="font-bold text-gray-200 text-[15px] ml-3">Quizzes</h1>
-                </div>
-                <div class="my-2 bg-gray-600 h-[1px]"></div>
-            </div>
-            <div
-                class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
-                <i class="bi bi-house-door-fill"></i>
-                <span class="text-[15px] ml-4 text-gray-200 font-bold">Quiz</span>
-            </div>
-            <div
-                class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
-                <i class="bi bi-house-door-fill"></i>
-                <span class="text-[15px] ml-4 text-gray-200 font-bold">Poll</span>
-            </div>
-            <div
-                class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
-                <i class="bi bi-bookmark-fill"></i>
-                <span class="text-[15px] ml-4 text-gray-200 font-bold">Blog</span>
-            </div>
-            <div class="my-4 bg-gray-600 h-[1px]"></div>
-            <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
-                onclick="dropdown()">
-                <i class="bi bi-chat-left-text-fill"></i>
-                <div class="flex justify-between w-full items-center">
-                    <span class="text-[15px] ml-4 text-gray-200 font-bold">DropDown</span>
-                    <span class="text-sm rotate-180" id="arrow">
-                        <i class="bi bi-chevron-down"></i>
-                    </span>
-                </div>
-            </div>
-            <div class="text-left text-sm mt-2 w-4/5 mx-auto text-gray-200 font-bold" id="submenu">
-                <h1 class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
-                    Social
-                </h1>
-                <h1 class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
-                    Personal
-                </h1>
-                <h1 class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
-                    Friends
-                </h1>
-            </div>
-            <div
-                class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
-                <i class="bi bi-box-arrow-in-right"></i>
-                <span class="text-[15px] ml-4 text-gray-200 font-bold">Logout</span>
-            </div>
-        </div>
-        {{-- End sidenav --}}
-        <main class=" w-screen bg-red-900">
 
-            <div class="  p-10 text-white shadow-lg  bg-gray-950">
-                <h2 class="mb-5 text-5xl font-semibold border-b-2">Hello #NAME!</h2>
+        {{-- End sidenav --}}
+        <main class=" w-screen bg-neutral-200">
+            <div class="  p-10 text-white shadow-lg  bg-gray-950 mx-2 rounded-md">
+                <h2 class="mb-5 text-5xl font-semibold border-b-2">Hello {{ Auth::user()->name }}!</h2>
                 <p class="text-xl">
                     I'm glad you're back. Check what has changed since your last login
                 </p>
@@ -64,7 +13,7 @@
             <section class="">
                 <div class="flex">
                     <div
-                        class="relative bg-gray-900 flex w-full text-center  flex-col  my-5 bg-clip-border text-white shadow-md">
+                        class="relative mx-2 rounded-md bg-gray-900 flex w-full text-center  flex-col  my-5 bg-clip-border text-white shadow-md">
                         <div class="p-10">
                             <h5
                                 class="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
@@ -76,7 +25,7 @@
             </section>
 
             {{-- NEXT SECTION --}}
-            <section class="bg-gray-950">
+            <section class="bg-gray-950 mx-2 p-5 rounded-md">
 
                 <div class=" flex flex-wrap justify-between">
                     <div
@@ -95,10 +44,8 @@
                             </button>
                         </div>
                     </div>
-
-
                     <div
-                        class="relative flex w-96 flex-col rounded-xl text-center bg-white bg-clip-border text-gray-700 shadow-md">
+                        class="relative flex w-96  flex-col rounded-xl text-center bg-white bg-clip-border text-gray-700 shadow-md">
                         <div class="p-6">
                             <h5
                                 class="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
@@ -113,8 +60,6 @@
                             </button>
                         </div>
                     </div>
-
-
                     <div
                         class="relative flex w-96 flex-col rounded-xl text-center bg-white bg-clip-border text-gray-700 shadow-md">
                         <div class="p-6">
@@ -134,98 +79,56 @@
                 </div>
             </section>
             {{-- START ACTIVITY SECTION --}}
-            <section class="bg-blue-500 my-5">
+            <section class="bg-gray-950 my-5 mx-2 rounded-md p-5">
                 <div class=" flex flex-wrap justify-between">
                     {{-- card --}}
-                    <div class="w-96 bg-yellow-500 my-5">
+                    <div class="w-96 bg-gray-100 my-5 rounded-lg">
                         <div>
-                            <h3 class="uppercase text-lg font-semibold h-12 flex border-b-2  items-center ">
+                            <h3 class="uppercase text-lg mx-2 font-semibold h-12 flex border-b-2  items-center ">
                                 Blogs activity
                             </h3>
                         </div>
                         <div class="text-gray-400">
-                            <div class=" flex justify-between border-b-2">
-                                <span class=" m-2">#BLOG NAME</span>
-                                <span class="m-2">#USER NAME</span>
-                            </div>
-                            <div class=" flex justify-between border-b-2">
-                                <span class="m-2">#BLOG NAME</span>
-                                <span class="m-2">#USER NAME</span>
-                            </div>
-                            <div class=" flex justify-between border-b-2">
-                                <span class="m-2">#BLOG NAME</span>
-                                <span class="m-2">#USER NAME</span>
-                            </div>
-                            <div class=" flex justify-between border-b-2">
-                                <span class="m-2">#BLOG NAME</span>
-                                <span class="m-2">#USER NAME</span>
-                            </div>
-                            <div class=" flex justify-between border-b-2">
-                                <span class="m-2">#BLOG NAME</span>
-                                <span class="m-2">#USER NAME</span>
-                            </div>
+                            @foreach ($BlogUsers as $Bloguser)
+                                <div class=" flex justify-between border-b-2 rounded-lg">
+                                    <span class=" m-2">{{ $Bloguser->title }}</span>
+                                    <span class="m-2">{{ $Bloguser->user->name }}</span>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                     {{-- end card --}}
                     {{-- card --}}
-                    <div class="w-96 bg-yellow-500 my-5 rounded-lg">
+                    <div class="w-96 bg-gray-100 my-5 rounded-lg">
                         <div>
-                            <h3 class="uppercase text-lg font-semibold h-12 flex border-b-2  items-center ">
-                                Blogs activity
+                            <h3 class="uppercase text-lg mx-2 font-semibold h-12 flex border-b-2  items-center ">
+                                Polls activity
                             </h3>
                         </div>
                         <div class="text-gray-400">
-                            <div class=" flex justify-between border-b-2 rounded-lg">
-                                <span class=" m-2">#BLOG NAME</span>
-                                <span class="m-2">#USER NAME</span>
-                            </div>
-                            <div class=" flex justify-between border-b-2 rounded-lg">
-                                <span class="m-2">#BLOG NAME</span>
-                                <span class="m-2">#USER NAME</span>
-                            </div>
-                            <div class=" flex justify-between border-b-2 rounded-lg">
-                                <span class="m-2">#BLOG NAME</span>
-                                <span class="m-2">#USER NAME</span>
-                            </div>
-                            <div class=" flex justify-between border-b-2 rounded-lg">
-                                <span class="m-2">#BLOG NAME</span>
-                                <span class="m-2">#USER NAME</span>
-                            </div>
-                            <div class=" flex justify-between border-b-2 rounded-lg">
-                                <span class="m-2">#BLOG NAME</span>
-                                <span class="m-2">#USER NAME</span>
-                            </div>
+                            @foreach ($PollUsers as $PollUser)
+                                <div class=" flex justify-between border-b-2 rounded-lg">
+                                    <span class=" m-2">{{ $PollUser->question }}</span>
+                                    <span class="m-2">{{ $PollUser->user->name }}</span>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                     {{-- end card --}}
                     {{-- card --}}
-                    <div class="w-96 bg-yellow-500 my-5">
+                    <div class="w-96 bg-gray-100 my-5 rounded-lg">
                         <div>
-                            <h3 class="uppercase text-lg font-semibold h-12 flex border-b-2  items-center ">
-                                Blogs activity
+                            <h3 class="uppercase text-lg mx-2 font-semibold h-12 flex border-b-2  items-center ">
+                                Quizzes activity
                             </h3>
                         </div>
                         <div class="text-gray-400">
-                            <div class=" flex justify-between border-b-2">
-                                <span class=" m-2">#BLOG NAME</span>
-                                <span class="m-2">#USER NAME</span>
-                            </div>
-                            <div class=" flex justify-between border-b-2">
-                                <span class="m-2">#BLOG NAME</span>
-                                <span class="m-2">#USER NAME</span>
-                            </div>
-                            <div class=" flex justify-between border-b-2">
-                                <span class="m-2">#BLOG NAME</span>
-                                <span class="m-2">#USER NAME</span>
-                            </div>
-                            <div class=" flex justify-between border-b-2">
-                                <span class="m-2">#BLOG NAME</span>
-                                <span class="m-2">#USER NAME</span>
-                            </div>
-                            <div class=" flex justify-between border-b-2">
-                                <span class="m-2">#BLOG NAME</span>
-                                <span class="m-2">#USER NAME</span>
-                            </div>
+                            @foreach ($QuizUsers as $QuizUser)
+                                <div class=" flex justify-between border-b-2 rounded-lg">
+                                    <span class=" m-2">{{ $QuizUser->name }}</span>
+                                    <span class="m-2">{{ $QuizUser->user->name }}</span>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                     {{-- end card --}}
@@ -241,11 +144,21 @@
         const Poll = "<?php echo $Poll; ?>";
         const Quiz = "<?php echo $Quiz; ?>";
 
-        function dropdown() {
-            document.querySelector("#submenu").classList.toggle("hidden");
-            document.querySelector("#arrow").classList.toggle("rotate-0");
+        function dropdown1() {
+            document.querySelector("#submenu1").classList.toggle("hidden");
         }
-        dropdown();
+
+        function dropdown2() {
+            document.querySelector("#submenu2").classList.toggle("hidden");
+        }
+
+        function dropdown3() {
+            document.querySelector("#submenu3").classList.toggle("hidden");
+        }
+
+        function dropdown4() {
+            document.querySelector("#submenu4").classList.toggle("hidden");
+        }
 
         function userCount(pradžia, pabaiga, žingsnis, intervalas) {
             let skaičius = pradžia;
