@@ -11,8 +11,6 @@
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
-    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
@@ -59,10 +57,7 @@
                     <a href="{{ route('quiz.create') }}"> Create</a>
                 </h5>
                 <h5 class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
-                    <a href="">Edit</a>
-                </h5>
-                <h5 class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
-                    <a href="{{ route('quiz.index') }}">View</a>
+                    <a href="{{ route('admin.quizzes') }}">All quizzes</a>
                 </h5>
             </div>
             <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
@@ -76,10 +71,7 @@
                     <a href="{{ route('poll.create') }}"> Create</a>
                 </h5>
                 <h5 class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
-                    <a href="">Edit</a>
-                </h5>
-                <h5 class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
-                    <a href="{{ route('poll.index') }}">View</a>
+                    <a href="{{ route('admin.polls') }}">All polls</a>
                 </h5>
             </div>
             <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
@@ -93,10 +85,7 @@
                     <a href="{{ route('blog.create') }}"> Create</a>
                 </h5>
                 <h5 class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
-                    <a href="">Edit</a>
-                </h5>
-                <h5 class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
-                    <a href="{{ route('blog.index') }}">View</a>
+                    <a href="{{ route('admin.blogs') }}">All blogs</a>
                 </h5>
             </div>
             <div class="my-4 bg-gray-600 h-[1px]"></div>
@@ -111,14 +100,32 @@
                     <a href="{{ route('admin.users') }}"> View</a>
                 </h5>
             </div>
-            <div
+            <form method="POST" action="{{ route('logout') }}"
                 class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
-                <i class="bi bi-box-arrow-in-right"></i>
-                <span class="text-[15px] ml-4 text-gray-200 font-bold">Logout</span>
-            </div>
+                @csrf
+                <button type="submit" class="text-[15px] ml-4 text-gray-200 font-bold">Logout</button>
+            </form>
         </div>
         @yield('content')
     </div>
+    <script type="text/javascript">
+        function dropdown1() {
+            document.querySelector("#submenu1").classList.toggle("hidden");
+        }
+
+        function dropdown2() {
+            document.querySelector("#submenu2").classList.toggle("hidden");
+        }
+
+        function dropdown3() {
+            document.querySelector("#submenu3").classList.toggle("hidden");
+        }
+
+        function dropdown4() {
+            document.querySelector("#submenu4").classList.toggle("hidden");
+        }
+
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     @livewireScripts
 </body>

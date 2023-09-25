@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->longText('description');
             $table->boolean('public')->default(false);
+            $table->boolean('suspended')->default(false);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

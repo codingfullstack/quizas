@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Blog extends Model
 {
-    protected $fillable = ['user_id', 'title', 'body'];
+    protected $fillable = ['user_id', 'title', 'body', 'suspended'];
     use HasFactory;
     public function categories()
     {
@@ -20,5 +21,9 @@ class Blog extends Model
     public function comment()
     {
         return $this->hasMany(Comment::class);
+    }
+    public function suspended() : HasOne
+    {
+        return $this->hasOne(suspension::class);
     }
 }

@@ -69,5 +69,6 @@ class Kernel extends HttpKernel
         'JoinQuiz' => \App\Http\Middleware\JoinQuizMiddleware::class,
         'quizCheck' => \App\Http\Middleware\CheckQuizCompletionMiddleware::class,
         'is_admin' => \App\Http\Middleware\UserIsAdmin::class,
+        'is_suspended' => \App\Http\Middleware\suspendedMiddleware::class,
     ];
 }

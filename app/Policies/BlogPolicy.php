@@ -16,6 +16,6 @@ class BlogPolicy
     }
     public function delete(User $user, Blog $blog)
     {
-     return auth()->check() && $blog->user_id === auth()->id();
+     return auth()->check() && $blog->user_id === auth()->id() || auth()->check() && $user->is_admin === 1;
     }
 }

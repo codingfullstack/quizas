@@ -60,6 +60,7 @@ Route::get('/poll', [PollController::class, 'index'])->name('poll.index');
 Route::middleware('auth')->group(function () {
     Route::get('/poll/create', [PollController::class, 'create'])->name('poll.create');
     Route::post('/poll/store', [PollController::class, 'store'])->name('poll.store');
+    Route::delete('/poll/{poll}', [PollController::class, 'destroy'])->name('poll.destroy');
 
     Route::resource('/blog', BlogController::class)->except(['index', 'show']);
 
@@ -73,14 +74,21 @@ Route::middleware('auth')->group(function () {
         ->name('profile.destroy');
 });
 // -------------- ONLY --------------
-Route::resource('quiz', QuizController::class)->only(['index', 'show']);
-Route::resource('/blog', BlogController::class)->only(['index', 'show']);
+Route::get('/quiz', [QuizController::class, 'index'])->name('quiz.index');
+// Route::resource('quiz', QuizController::class)->only(['index', 'show'])->middleware('is_suspended');
+Route::get('/quiz/{quiz}', [QuizController::class, 'show'])->name('quiz.show')->middleware('is_suspended');
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+Route::get('/blog/{blog}', [BlogController::class, 'show'])->name('blog.show')->middleware('is_suspended');
 });
 // -----------ADMIN----------------
 
 Route::get('/admin', [AdminController::class, 'index'])->name('admin')->middleware('is_admin');
 Route::get('/admin-users', [AdminController::class, 'usersList'])->name('admin.users')->middleware('is_admin');
+Route::get('/admin-polls', [AdminController::class, 'pollsList'])->name('admin.polls')->middleware('is_admin');
+Route::get('/admin-blogs', [AdminController::class, 'blogsList'])->name('admin.blogs')->middleware('is_admin');
+Route::get('/admin-quizzes', [AdminController::class, 'quizzesList'])->name('admin.quizzes')->middleware('is_admin');
 Route::post('/adminUser/{id}', [AdminController::class, 'changePermission'])->name('adminUser')->middleware('is_admin');
+Route::post('/adminBlog/{category}/{id}', [AdminController::class, 'suspended'])->name('adminBlog')->middleware('is_admin');
 
 
 

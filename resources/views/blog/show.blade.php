@@ -1,5 +1,12 @@
 <x-app-layout>
     <div class=" mx-auto h-96 w-11/12 border-b-2">
+        @if ($blog->suspended)
+            <div class="bg-red-100 border-t border border-red-500 text-red-700 px-4 py-3 rounded-md" role="alert">
+                <p class="font-bold">Informational message</p>
+                <p class="text-sm font-semibold">Your post has been suspended:#REASON</p>
+            </div>
+        @endif
+
         <div class="text-3xl font-semibold my-2">
             <h2>{{ $blog->title }}</h2>
         </div>

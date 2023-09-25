@@ -69,6 +69,7 @@ class PollController extends Controller
      */
     public function destroy(Poll $poll)
     {
-        //
+        $poll->delete();
+        return redirect()->back();
     }
 }

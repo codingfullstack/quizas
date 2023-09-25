@@ -10,25 +10,27 @@
             <div class="  flex flex-wrap md:justify-center sm:justify-center xl:justify-start">
                 @foreach ($Blogs as $item)
                     <div
-                        class=" rounded sm:w-full md:w-80 h-80 lg:w-5/12 overflow-hidden shadow-lg w-full mx-3 my-3  bg-gray-200">
+                        class="relative w-full h-80 sm:w-80 md:w-80 lg:w-5/12 mx-3 my-3 bg-gray-200 rounded-lg overflow-hidden shadow-lg">
+                        @if ($item->suspended && $item->user->id == Auth()->id())
+                            <span class="absolute top-2 right-2">
+                                <span
+                                    class="animate-ping absolute inline-flex h-5 w-5 rounded-full bg-red-400 opacity-75"></span>
+                                <span class="inline-flex rounded-full h-5 w-5 bg-red-500"></span>
+                            </span>
+                        @endif
                         <img class="h-auto bg-cover rounded-lg" src="{{ asset('images/abstract.jpg') }}"
                             alt="Sunset in the mountains">
-                        <div class="  px-6 py-4">
-                            <div class="font-semibold text-3xl mb-2"><a class="hover:underline"
+                        <div class="px-6 py-4">
+                            <div class="font-semibold text-3xl mb-2">
+                                <a class="hover:underline"
                                     href="{{ route('blog.show', $item->id) }}">{{ $item->title }}</a>
                             </div>
                             <div class="text-gray-400 text-base flex justify-between">
-                                {{-- <p class="inline">
-                                    {{ \Illuminate\Support\Str::limit(strip_tags($item->body), 20) }}.
-                                </p> --}}
                                 <p class="inline text-green-600">
                                     {{ $item->created_at }}
                                 </p>
                             </div>
                         </div>
-                        {{-- <span class="inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-                          <span class="inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-                          <span class="inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span> --}}
                     </div>
                 @endforeach
             </div>

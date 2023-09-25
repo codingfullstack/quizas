@@ -63,6 +63,12 @@
                         </x-slot>
 
                         <x-slot name="content">
+                            @if (Auth::user()->is_admin)
+                               <x-dropdown-link :href="route('admin')">
+                                {{ __('Admin') }}
+                            </x-dropdown-link>
+                            @endif
+
                             <x-dropdown-link :href="route('profile.edit')">
                                 {{ __('Profile') }}
                             </x-dropdown-link>
@@ -79,7 +85,6 @@
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-
                                 <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
@@ -139,6 +144,11 @@
                 </div>
 
                 <div class="mt-3 space-y-1">
+                    @if (Auth::user()->is_admin)
+                    <x-responsive-nav-link :href="route('admin')">
+                        {{ __('Admin') }}
+                    </x-responsive-nav-link>
+                    @endif
                     <x-responsive-nav-link :href="route('profile.edit')">
                         {{ __('Profile') }}
                     </x-responsive-nav-link>

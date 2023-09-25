@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('question');
             $table->integer('yes')->nullable()->default(0);
             $table->integer('no')->nullable()->default(0);
+            $table->boolean('suspended')->default(false);
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });

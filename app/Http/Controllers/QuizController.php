@@ -56,9 +56,9 @@ class QuizController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show(Quiz $quiz)
     {
-        $quiz = quiz::find($id);
+        $quiz = quiz::find($quiz->id);
         $questions = $quiz->quiz_question;
         $count = count($questions);
         $permissionCount = count($quiz->quiz_permission);
