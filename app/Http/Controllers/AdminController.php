@@ -21,7 +21,7 @@ class AdminController extends Controller
         $BlogUsers = Blog::with('user')->latest()->limit(5)->get();
         $PollUsers = Poll::with('user')->latest()->limit(5)->get();
         $QuizUsers = Quiz::with('user')->latest()->limit(5)->get();
-        return view('Admin.index', compact('User', 'Blog', 'Quiz', 'Poll', 'BlogUsers', 'PollUsers', 'QuizUsers'));
+        return view('admin.index', compact('User', 'Blog', 'Quiz', 'Poll', 'BlogUsers', 'PollUsers', 'QuizUsers'));
     }
     public function usersList()
     {
