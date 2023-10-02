@@ -17,6 +17,13 @@
                                     class="animate-ping absolute inline-flex h-5 w-5 rounded-full bg-red-400 opacity-75"></span>
                                 <span class="inline-flex rounded-full h-5 w-5 bg-red-500"></span>
                             </span>
+                            @elseif ($item->suspended)
+                            <span class="absolute top-2 right-2">
+                                <button type="button"
+                                    class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 ">
+                                    Suspended
+                                </button>
+                            </span>
                         @endif
                         <img class="h-auto bg-cover rounded-lg" src="{{ asset('images/abstract.jpg') }}"
                             alt="Sunset in the mountains">
