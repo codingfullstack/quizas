@@ -47,7 +47,6 @@ class HomeController extends Controller
 
         $quizzes = $quizzes->get();
 
-        // dd($quizzes);
         return view('home.search', compact('quizzes'));
     }
 

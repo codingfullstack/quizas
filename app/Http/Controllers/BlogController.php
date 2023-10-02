@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use Illuminate\Http\Request;
 use App\Models\Category_blog;
+use App\Models\suspension;
 use Illuminate\Support\Facades\Auth;
 
 class BlogController extends Controller
@@ -54,7 +55,8 @@ class BlogController extends Controller
      */
     public function show(Blog $blog)
     {
-        return view('blog.show', compact('blog'));
+        $Suspended = suspension::where('blog_id', $blog->id)->get();
+        return view('blog.show', compact(['blog', 'Suspended']));
     }
 
     /**

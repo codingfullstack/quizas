@@ -27,6 +27,7 @@
                 opacity: 0.8;
             }
         }
+
         [x-cloak] {
             display: none;
         }
@@ -46,6 +47,12 @@
                 </div>
                 <div class="my-2 bg-gray-600 h-[1px]"></div>
             </div>
+            <a href="{{ route('admin') }}"
+                class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
+                <div class="flex justify-between w-full items-center">
+                    <span class="text-[15px] ml-4 text-gray-200 font-bold">Dashboard</span>
+                </div>
+            </a>
             <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
                 onclick="dropdown1()">
                 <div class="flex justify-between w-full items-center">
@@ -53,12 +60,13 @@
                 </div>
             </div>
             <div class="text-left text-sm mt-2 w-4/5 mx-auto hidden text-gray-200 font-bold" id="submenu1">
-                <h5 class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
-                    <a href="{{ route('quiz.create') }}"> Create</a>
-                </h5>
-                <h5 class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
-                    <a href="{{ route('admin.quizzes') }}">All quizzes</a>
-                </h5>
+                <a href="{{ route('quiz.create') }}" class="cursor-pointer block p-2 hover:bg-blue-600 rounded-md mt-1">
+                    Create
+                </a>
+                <a href="{{ route('admin.quizzes') }}"
+                    class="cursor-pointer block p-2 hover:bg-blue-600 rounded-md mt-1">
+                    All quizzes
+                </a>
             </div>
             <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
                 onclick="dropdown2()">
@@ -67,12 +75,12 @@
                 </div>
             </div>
             <div class="text-left text-sm mt-2 w-4/5 mx-auto hidden text-gray-200 font-bold" id="submenu2">
-                <h5 class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
-                    <a href="{{ route('poll.create') }}"> Create</a>
-                </h5>
-                <h5 class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
-                    <a href="{{ route('admin.polls') }}">All polls</a>
-                </h5>
+                <a href="{{ route('poll.create') }}" class="cursor-pointer block p-2 hover:bg-blue-600 rounded-md mt-1">
+                    Create
+                </a>
+                <a href="{{ route('admin.polls') }}" class="cursor-pointer block p-2 hover:bg-blue-600 rounded-md mt-1">
+                    All polls
+                </a>
             </div>
             <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
                 onclick="dropdown3()">
@@ -81,12 +89,14 @@
                 </div>
             </div>
             <div class="text-left text-sm mt-2 w-4/5 mx-auto hidden text-gray-200 font-bold" id="submenu3">
-                <h5 class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
-                    <a href="{{ route('blog.create') }}"> Create</a>
-                </h5>
-                <h5 class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
-                    <a href="{{ route('admin.blogs') }}">All blogs</a>
-                </h5>
+                <a href="{{ route('blog.create') }}"
+                    class="cursor-pointer block p-2 hover:bg-blue-600 rounded-md mt-1">
+                    Create
+                </a>
+                <a href="{{ route('admin.blogs') }}"
+                    class="cursor-pointer block p-2 hover:bg-blue-600 rounded-md mt-1">
+                    All blogs
+                </a>
             </div>
             <div class="my-4 bg-gray-600 h-[1px]"></div>
             <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
@@ -96,9 +106,9 @@
                 </div>
             </div>
             <div class="text-left text-sm mt-2 w-4/5 mx-auto hidden text-gray-200 font-bold" id="submenu4">
-                <h5 class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
-                    <a href="{{ route('admin.users') }}"> View</a>
-                </h5>
+                <a href="{{ route('admin.users') }}" class="cursor-pointer block p-2 hover:bg-blue-600 rounded-md mt-1">
+                    View
+                </a>
             </div>
             <form method="POST" action="{{ route('logout') }}"
                 class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
@@ -124,7 +134,6 @@
         function dropdown4() {
             document.querySelector("#submenu4").classList.toggle("hidden");
         }
-
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     @livewireScripts

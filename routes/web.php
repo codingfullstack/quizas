@@ -88,7 +88,8 @@ Route::get('/admin-polls', [AdminController::class, 'pollsList'])->name('admin.p
 Route::get('/admin-blogs', [AdminController::class, 'blogsList'])->name('admin.blogs')->middleware('is_admin');
 Route::get('/admin-quizzes', [AdminController::class, 'quizzesList'])->name('admin.quizzes')->middleware('is_admin');
 Route::post('/adminUser/{id}', [AdminController::class, 'changePermission'])->name('adminUser')->middleware('is_admin');
-Route::post('/adminBlog/{category}/{id}', [AdminController::class, 'suspended'])->name('adminBlog')->middleware('is_admin');
+Route::post('/adminBlog/{category}/{id}', [AdminController::class, 'suspended'])->name('adminBlog.suspended')->middleware('is_admin');
+Route::post('/adminBlog.suspended/{category}/{id}', [AdminController::class, 'unsuspended'])->name('adminBlog.unsuspended')->middleware('is_admin');
 
 
 

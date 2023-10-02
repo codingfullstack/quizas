@@ -64,17 +64,16 @@ class AdminController extends Controller
         ]);
         $this->checkCategory($request, $category, $id);
         suspension::create([
-            'quiz_id'=> $request->input('quiz_id'),
-            'poll_id'=> $request->input('poll_id'),
-            'blog_id'=> $request->input('blog_id'),
+            'quiz_id' => $request->input('quiz_id'),
+            'poll_id' => $request->input('poll_id'),
+            'blog_id' => $request->input('blog_id'),
             'suspended_at' => now(),
-            'category' =>$category,
+            'category' => $category,
             'reason' => $request->input('reason'),
 
         ]);
-        DB::table($category)->where('id', $id)->update(['suspended'=> true]);
+        DB::table($category)->where('id', $id)->update(['suspended' => true]);
         return redirect()->back();
-
     }
     public function checkCategory(Request $request, $category, $id)
     {
@@ -90,5 +89,23 @@ class AdminController extends Controller
         } else {
             $request->merge(['quiz_id' => $id]);
         }
+    }
+    public function unsuspended(Request $request, $category, $id)
+    {
+        $request->validate([
+            'check' => 'required',
+        ]);
+        $this->checkCategory($request, $category, $id);
+
+        if ($request->input('blog_id') !== null) {
+            $category_id = 'blog_id';
+        } elseif ($request->input('poll_id') !== null) {
+            $category_id = 'poll_id';
+        } else {
+            $category_id = 'quiz_id';
+        }
+        DB::table($category)->where('id', $id)->update(['suspended' => false]);
+        suspension::where($category_id, $id)->delete();
+        return redirect()->back();
     }
 }

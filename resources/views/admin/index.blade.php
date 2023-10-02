@@ -96,7 +96,7 @@
                     <div class="text-gray-400">
                         @foreach ($BlogUsers as $Bloguser)
                             <div class=" flex justify-between border-b-2 rounded-lg">
-                                <a class=" m-2" href="{{ route('blog.show', $Bloguser->id) }}">
+                                <a class=" m-2 hover:text-gray-600 hover:font-semibold" href="{{ route('blog.show', $Bloguser->id) }}">
                                     <span>{{ $Bloguser->title }}</span>
                                 </a>
                                 <span class="m-2">{{ $Bloguser->user->name }}</span>
@@ -116,7 +116,7 @@
                         @foreach ($PollUsers as $PollUser)
                             <div class=" flex justify-between border-b-2 rounded-lg">
                                 {{-- <a class=" m-2" href="{{ route('poll.show', $PollUser->id) }}"> --}}
-                                    <span class="m-2">{{ $PollUser->question }}</span>
+                                <span class="m-2">{{ $PollUser->question }}</span>
                                 {{-- </a> --}}
                                 <span class="m-2">{{ $PollUser->user->name }}</span>
                             </div>
@@ -134,7 +134,7 @@
                     <div class="text-gray-400">
                         @foreach ($QuizUsers as $QuizUser)
                             <div class=" flex justify-between border-b-2 rounded-lg">
-                                <a class=" m-2" href="{{ route('quiz.show', $QuizUser->id) }}">
+                                <a class=" m-2 hover:text-gray-600 hover:font-semibold" href="{{ route('quiz.show', $QuizUser->id) }}">
                                     <span>{{ $QuizUser->name }}</span>
                                 </a>
                                 <span class="m-2">{{ $QuizUser->user->name }}</span>
@@ -147,8 +147,6 @@
         </section>
     </main>
     </div>
-
-
     <script type="text/javascript">
         const User = "<?php echo $User; ?>";
         const Blog = "<?php echo $Blog; ?>";

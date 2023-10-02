@@ -3,7 +3,7 @@
         @if ($blog->suspended)
             <div class="bg-red-100 border-t border border-red-500 text-red-700 px-4 py-3 rounded-md" role="alert">
                 <p class="font-bold">Informational message</p>
-                <p class="text-sm font-semibold">Your post has been suspended:#REASON</p>
+                <p class="text-sm font-semibold">Your post has been suspended: <span class="uppercase">{{$Suspended[0]->reason}}</span> </p>
             </div>
         @endif
 
